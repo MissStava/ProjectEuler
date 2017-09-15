@@ -9,9 +9,22 @@
 
 # 1st attempt
 
-fibonacci = [0,1]
+def fibonacci_up_to(limit):
+    fibonacci = [1,2]
 
-for num in range(2,34):
-    fibonacci.append(fibonacci[num-1] + fibonacci[num-2])
+    while True:
+        n1 = fibonacci[len(fibonacci)-2]
+        n2 = fibonacci[len(fibonacci)-1]
 
-print fibonacci
+        nth = n1 + n2
+
+        if nth >= limit:
+            break
+
+        fibonacci.append(nth)
+        
+    return fibonacci
+
+print sum([x for x in fibonacci_up_to(4000000) if x % 2 == 0])
+
+# Answer is 4613732
